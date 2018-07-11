@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <p> </p>
+    <h4>Let's add a train</h4>
+    <p> </p>
+    <form action="/trains" method="post">
+      <div class="form-inline">
+        <label for="train_name">Train Name</label>
+        <input id="train_name" name="train_name" class="form-control" type="text">
+        <p>&nbsp;</p>
+      </div>
+      <p>&nbsp;</p>
+      <button type="submit" class="btn btn-info">submit</button>
+      <p>&nbsp;</p>
+      <%@train_names.each do |train|%>
+      <%= train["name"] %>
+      <p> </p>
+      <% end %>
+    </form>
+  </div>
+  <div class="row">
+  </div>
+</div>

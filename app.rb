@@ -1,8 +1,11 @@
 require("sinatra")
 require("sinatra/reloader")
 also_reload("lib/**/*.rb")
-require("./lib/operator")
 require("./lib/rider")
+require('./lib/city_operator')
+require('./lib/train_operator')
+require('./lib/time_operator')
+require('./lib/cities')
 require("pry")
 require("pg")
 
@@ -21,37 +24,46 @@ get ('/rider') do
   erb(:rider)
 end
 
-post ('/crud_cities.erb') do
+post ('/cities') do
 
-  erb(:crud_cities.erb)
+  erb(:cities)
 end
 
-post ('/crud_times.erb') do
+post ('/times') do
 
-  erb(:crud_times.erb)
+  erb(:times)
 end
 
-# post ('/crud_trains.erb') do
-#
-#   erb(:crud_trains.erb)
-# end
-#
-# get ('/view_cities') do
-#
-#   erb(:view_cities)
-# end
-#
-# get ('/view_times') do
-#
-#   erb(:view_times)
-# end
-#
-# get ('/view_trains') do
-#
-#   erb(:view_trains)
-# end
-#
-# post ('/crud_ticket') do
-#
-#   erb(:crud_ticket)
-# end
+get ('/trains') do
+  @train_names = Train.all()
+  erb(:trains)
+end
+
+post ('/trains') do
+  @train_name = params["train_name"]
+  new_name = Train.new({:train_name => @train_name})
+  new_name.save()
+  frogs = DB.exec("SELECT * FROM train;")
+  binding.pry
+  erb(:trains)
+end
+
+get ('/getcities') do
+
+  erb(:getcities)
+end
+
+get ('/gettimes') do
+
+  erb(:gettimes)
+end
+
+get ('/gettrains') do
+  @train_list = Train.all()
+  erb(:gettrains)
+end
+
+post ('/ticket') do
+
+  erb(:ticket)
+end

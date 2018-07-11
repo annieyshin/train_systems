@@ -12,17 +12,7 @@ describe(Traintime) do
       expect(time_input.first["time"]).to(include("12:59"))
     end
   end
-
-  # describe("#save") do
-
-  #   it("adds a train to the array of saved trains") do
-  #     test_train = Train.new({:train_name => "Trainy McTrainface"})
-  #     test_train.save()
-  #     expect(Train.all()).to(eq([test_train]))
-  #   end
-  # end
-
-  # describe("#description") do
+  # describe("#train_time") do
   #   it("lets you read the description out") do
   #     test_task = Task.new({:description => "learn SQL", :list_id => 1, :due_date => '2018-07-15'})
   #     expect(test_task.description()).to(eq("learn SQL"))

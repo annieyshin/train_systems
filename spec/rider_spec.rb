@@ -1,9 +1,6 @@
 require("rspec")
 require("pg")
 require("rider")
-require("city_operator")
-require("train_operator")
-require("time_operator")
 require('spec_helper')
 
 describe(Rider) do
@@ -59,10 +56,10 @@ describe(Rider) do
   # end
   #
   # describe("#==") do
-  #   it("is the same task if it has the same description and list ID") do
-  #     task1 = Task.new({:description => "learn SQL", :list_id => 1, :due_date => '2018-07-15'})
-  #     task2 = Task.new({:description => "learn SQL", :list_id => 1, :due_date => '2018-07-15'})
-  #     expect(task1).to(eq(task2))
+  #   it("is the same train if it has the same name and ID") do
+  #     train1 = Train.new({:train_name => "Trainy McBoatface"})
+  #     train2 = Train.new({:train_name => "Trainy McBoatface"})
+  #     expect(train1).to(eq(train2))
   #   end
   # end
   #

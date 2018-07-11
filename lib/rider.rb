@@ -43,9 +43,9 @@ class Rider
     times
   end
 
-  # def ==(another_task)
-  #   self.description().==(another_task.description()).&(self.list_id().==(another_task.list_id()))
+  # def ==(another_train)
+  #   self.name().==(another_train.name()).&(self.id().==(another_train.id()))
   # end
-  #
+
 
 end

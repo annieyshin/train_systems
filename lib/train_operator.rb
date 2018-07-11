@@ -7,20 +7,17 @@ attr_writer(:train_name)
     @train_name = attributes.fetch(:train_name)
   end
 
-  def self.all
+  def all
     returned_trains = DB.exec("SELECT * FROM train;")
     trains = []
     returned_trains.each() do |train|
-      train_name = task.fetch(:train_name => train_name)
-      train_id = task.fetch("id").to_i() # The information comes out of the database as a string.
+      binding.pry
+      train_name = train.fetch("name" => train_name)
+      train_id = train.fetch("id").to_i() # The information comes out of the database as a string.
       trains.push({:train_name => train_name, :train_id => train_id})
     end
     trains
   end
-
-  # def ==(another_task)
-  #   self.description().==(another_task.description()).&(self.list_id().==(another_task.list_id()))
-  # end
 
   def save
     DB.exec("INSERT INTO train (name) VALUES ('#{@train_name}');")

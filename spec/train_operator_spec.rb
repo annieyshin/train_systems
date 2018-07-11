@@ -13,6 +13,15 @@ describe(Train) do
     end
   end
 
+  describe(".all") do
+    it("adds new train") do
+      new_train = Train.new({:train_name => "Trainy McTrainface"})
+      new_train.save()
+      train_input = new_train.all()
+      expect(train_input.last["name"]).to(include("Trainy McTrainface"))
+  end
+ end
+
   # describe("#save") do
 
   #   it("adds a train to the array of saved trains") do

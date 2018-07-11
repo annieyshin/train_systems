@@ -68,3 +68,8 @@ ALTER TABLE stops ADD FOREIGN KEY (id_city) REFERENCES city (id);
 -- ('','');
 -- INSERT INTO stops (id,time,id_train,id_city) VALUES
 -- ('','','','');
+
+
+SELECT pid, pg_terminate_backend(pid)
+FROM train_systems_test 
+WHERE datname = current_database() AND pid <> pg_backend_pid();
