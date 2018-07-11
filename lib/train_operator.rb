@@ -5,7 +5,6 @@ attr_writer(:train_name)
 
   def initialize(attributes)
     @train_name = attributes.fetch(:train_name)
-
   end
 
   def self.all

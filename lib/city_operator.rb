@@ -5,7 +5,6 @@ attr_writer(:city_name)
 
   def initialize(attributes)
     @city_name = attributes.fetch(:city_name)
-
   end
 
   def self.all
@@ -22,6 +21,5 @@ attr_writer(:city_name)
   def save
     DB.exec("INSERT INTO city (city) VALUES ('#{@city_name}');")
   end
-
 
 end

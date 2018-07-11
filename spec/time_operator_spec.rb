@@ -1,46 +1,24 @@
 require("rspec")
 require("pg")
-require("rider")
-require("city_operator")
-require("train_operator")
 require("time_operator")
 require('spec_helper')
 
-describe(Rider) do
-  describe(".train") do
-    it("is empty at first") do
-      expect(Rider.train()).to(eq([]))
+describe(Traintime) do
+  describe("#save") do
+    it("adds new time") do
+      new_time = Traintime.new({:time => "12:59"})
+      new_time.save()
+      time_input = DB.exec("SELECT * FROM stops WHERE time = '12:59';")
+      expect(time_input.first["time"]).to(include("12:59"))
     end
   end
 
-  describe(".city") do
-    it("is empty at first") do
-      expect(Rider.city()).to(eq([]))
-    end
-  end
-
-  describe(".time") do
-    it("is empty at first") do
-      expect(Rider.time()).to(eq([]))
-    end
-  end
-
-  # describe(".city") do
-  #   it("can look up a city") do
-  #     expect(Rider.time()).to(eq([]))
-  #   end
-  # end
-  #
-  # describe(".time") do
-  #   it("can look up a time") do
-  #     expect(Rider.time()).to(eq([]))
-  #   end
-  # end
   # describe("#save") do
-  #   it("adds a task to the array of saved tasks") do
-  #     test_task = Task.new({:description => "learn SQL", :list_id => 1, :due_date => '2018-07-15'})
-  #     test_task.save()
-  #     expect(Task.all()).to(eq([test_task]))
+
+  #   it("adds a train to the array of saved trains") do
+  #     test_train = Train.new({:train_name => "Trainy McTrainface"})
+  #     test_train.save()
+  #     expect(Train.all()).to(eq([test_train]))
   #   end
   # end
 
