@@ -4,9 +4,21 @@ require("rider")
 require('spec_helper')
 
 describe(Rider) do
-  describe(".all") do
+  describe(".train") do
     it("is empty at first") do
-      expect(Rider.all()).to(eq([]))
+      expect(Rider.train()).to(eq([]))
+    end
+  end
+
+  describe(".city") do
+    it("is empty at first") do
+      expect(Rider.city()).to(eq([]))
+    end
+  end
+
+  describe(".time") do
+    it("is empty at first") do
+      expect(Rider.time()).to(eq([]))
     end
   end
 
