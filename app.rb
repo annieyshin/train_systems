@@ -7,7 +7,7 @@ require("pry")
 require("pg")
 
 
-DB = PG.connect({:dbname => "to_do"})
+DB = PG.connect({:dbname => "train_systems_test"})
 
 get ('/') do
   erb(:input)
@@ -20,17 +20,17 @@ end
 get ('/rider') do
   erb(:rider)
 end
-#
-# post ('/crud_cities.erb') do
-#
-#   erb(:crud_cities.erb)
-# end
-#
-# post ('/crud_times.erb') do
-#
-#   erb(:crud_times.erb)
-# end
-#
+
+post ('/crud_cities.erb') do
+
+  erb(:crud_cities.erb)
+end
+
+post ('/crud_times.erb') do
+
+  erb(:crud_times.erb)
+end
+
 # post ('/crud_trains.erb') do
 #
 #   erb(:crud_trains.erb)
