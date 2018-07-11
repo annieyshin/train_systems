@@ -10,13 +10,13 @@ attr_writer(:train_name)
 
   def self.all
     returned_trains = DB.exec("SELECT * FROM train;")
-    tasks = []
+    trains = []
     returned_trains.each() do |train|
-      description = task.fetch(:train_name => "Trainy McTrainface")
-      list_id = task.fetch("id").to_i() # The information comes out of the database as a string.
-      tasks.push({:description => description, :list_id => list_id, :due_date => due_date})
+      train_name = task.fetch(:train_name => train_name)
+      train_id = task.fetch("id").to_i() # The information comes out of the database as a string.
+      trains.push({:train_name => train_name, :train_id => train_id})
     end
-    tasks
+    trains
   end
 
   # def ==(another_task)

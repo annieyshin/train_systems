@@ -4,7 +4,7 @@ require("train_operator")
 require('spec_helper')
 
 describe(Train) do
-  describe("initialize") do
+  describe("#save") do
     it("adds new train") do
       new_train = Train.new({:train_name => "Trainy McTrainface"})
       new_train.save()
