@@ -1,0 +1,70 @@
+-- ---
+-- Globals
+-- ---
+
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET FOREIGN_KEY_CHECKS=0;
+
+-- ---
+-- Table 'train'
+--
+-- ---
+
+DROP TABLE IF EXISTS train;
+
+CREATE TABLE train (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR NULL DEFAULT NULL
+);
+
+-- ---
+-- Table 'city'
+--
+-- ---
+
+DROP TABLE IF EXISTS city;
+
+CREATE TABLE city (
+  id SERIAL PRIMARY KEY,
+  city VARCHAR NULL DEFAULT NULL
+);
+
+-- ---
+-- Table 'stops'
+--
+-- ---
+
+DROP TABLE IF EXISTS stops;
+
+CREATE TABLE stops (
+  id SERIAL PRIMARY KEY,
+  time VARCHAR NULL DEFAULT NULL,
+  id_train INTEGER NULL DEFAULT NULL,
+  id_city INTEGER NULL DEFAULT NULL
+);
+
+-- ---
+-- Foreign Keys
+-- ---
+
+ALTER TABLE stops ADD FOREIGN KEY (id_train) REFERENCES train (id);
+ALTER TABLE stops ADD FOREIGN KEY (id_city) REFERENCES city (id);
+
+-- ---
+-- Table Properties
+-- ---
+
+-- ALTER TABLE train ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE city ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE stops ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ---
+-- Test Data
+-- ---
+
+-- INSERT INTO train (id,name) VALUES
+-- ('','');
+-- INSERT INTO city (id,city) VALUES
+-- ('','');
+-- INSERT INTO stops (id,time,id_train,id_city) VALUES
+-- ('','','','');
