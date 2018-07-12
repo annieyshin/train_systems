@@ -12,11 +12,21 @@
       <p>&nbsp;</p>
       <button type="submit" class="btn btn-info">submit</button>
       <p>&nbsp;</p>
-      <%@train_names.each do |train|%>
-      <%= train["name"] %>
-      <p> </p>
+      </form>
+
+      <%if @train_names != nil%>
+        <h3>Here are your train names</h3>
+
+        <ul>
+          <%@train_names.each do |train|%>
+          <li> <%= train[:train_name] %> </li>
+          <% end %>
+        </ul>
+
+      <% else %>
+          <p>There are no trains here!</p>
       <% end %>
-    </form>
+
   </div>
   <div class="row">
   </div>

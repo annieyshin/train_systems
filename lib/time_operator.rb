@@ -5,6 +5,8 @@ attr_writer(:time)
 
   def initialize(attributes)
     @time = attributes.fetch(:time)
+    @id_city = attributes.fetch(:id_city)
+    @id_train = attributes.fetch(:id_train)
   end
 
   def self.all
@@ -20,7 +22,7 @@ attr_writer(:time)
   end
 
   def save
-    DB.exec("INSERT INTO stops (time) VALUES ('#{@time}');")
+    DB.exec("INSERT INTO stops (time, id_city, id_train) VALUES ('#{@time}', '#{@id_city}', '#{@id_train}');")
   end
 
 end

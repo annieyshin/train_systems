@@ -14,11 +14,12 @@ describe(Train) do
   end
 
   describe(".all") do
-    it("adds new train") do
+    it("returns list of all trains") do
       new_train = Train.new({:train_name => "Trainy McTrainface"})
       new_train.save()
-      train_input = new_train.all()
-      expect(train_input.last["name"]).to(include("Trainy McTrainface"))
+      train_input = Train.all()
+      binding.pry
+      expect(train_input.last[:train_name]).to(include("Trainy McTrainface"))
   end
  end
 

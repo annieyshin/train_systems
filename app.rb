@@ -24,14 +24,31 @@ get ('/rider') do
   erb(:rider)
 end
 
-post ('/cities') do
-
+get ('/cities') do
+  @city_names = City.all()
   erb(:cities)
 end
 
-post ('/times') do
+post ('/cities') do
+  @city_name = params["city_name"]
+  new_city_name = City.new({:city_name => @city_name})
+  new_city_name.save()
+  redirect to('/cities')
+end
 
+get ('/times') do
+  @train_names = Train.all()
+  @city_names = City.all()
   erb(:times)
+end
+
+post ('/times') do
+  @train_time = params["train_time"]
+  @id_city = params["city_drop"]
+  @id_train = params["train_drop"]
+  eta = Traintime.new({:time => @train_time, :id_city => @id_city, :id_train => @id_train})
+  eta.save()
+  redirect to('/times')
 end
 
 get ('/trains') do
@@ -43,9 +60,7 @@ post ('/trains') do
   @train_name = params["train_name"]
   new_name = Train.new({:train_name => @train_name})
   new_name.save()
-  frogs = DB.exec("SELECT * FROM train;")
-  binding.pry
-  erb(:trains)
+  redirect to('/trains')
 end
 
 get ('/getcities') do
@@ -60,7 +75,7 @@ end
 
 get ('/gettrains') do
   @train_list = Train.all()
-  erb(:gettrains)
+  erb(:trains)
 end
 
 post ('/ticket') do

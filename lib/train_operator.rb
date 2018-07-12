@@ -7,14 +7,16 @@ attr_writer(:train_name)
     @train_name = attributes.fetch(:train_name)
   end
 
-  def all
+  def self.all
     returned_trains = DB.exec("SELECT * FROM train;")
     trains = []
     returned_trains.each() do |train|
-      binding.pry
-      train_name = train.fetch("name" => train_name)
+      name = train.fetch("name")
       train_id = train.fetch("id").to_i() # The information comes out of the database as a string.
-      trains.push({:train_name => train_name, :train_id => train_id})
+      unless name == nil
+        trains.push({:train_name => name, :train_id => train_id})
+        # trains.push(Train.new({:train_name => name}))
+      end
     end
     trains
   end
