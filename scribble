@@ -10,3 +10,18 @@
 <% else %>
     <p>There are no trains here!</p>
 <% end %>
+
+
+<!--
+  <%if @city_names != nil%>
+    <h3>Cities: </h3>
+
+    <ul>
+      <%@city_names.each do |train|%>
+      <li> <%= city[:city_name] %> </li>
+      <% end %>
+    </ul>
+
+  <% else %>
+      <p>There are no cities listed here!</p>
+  <% end %> -->

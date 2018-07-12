@@ -13,6 +13,10 @@
       <button type="submit" class="btn btn-info">submit</button>
       <p>&nbsp;</p>
       </form>
+        <p> </p>
+        <form class="form-inline" method="get" action="/">
+          <button type="submit" class="btn btn-danger" name="clear_btn">Back</button>
+      </form>
 
       <%if @train_names != nil%>
         <h3>Here are your train names</h3>
@@ -26,8 +30,8 @@
       <% else %>
           <p>There are no trains here!</p>
       <% end %>
-
   </div>
+
   <div class="row">
   </div>
 </div>
