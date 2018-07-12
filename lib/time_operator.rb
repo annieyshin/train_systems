@@ -2,6 +2,7 @@ require("pry")
 class Traintime
 
 attr_writer(:time)
+attr_reader(:id_city, :id_train)
 
   def initialize(attributes)
     @time = attributes.fetch(:time)
@@ -14,8 +15,8 @@ attr_writer(:time)
     times = []
     returned_times.each() do |stops|
       time = stops.fetch(:time => time)
-      city_id = stops.fetch("city_id").to_i()
-      train_id = stops.fetch("train_id").to_i()
+      city_id = stops.fetch(:id_city).to_i()
+      train_id = stops.fetch(:id_train).to_i()
       times.push({:train_id => train_id, :city_id => city_id, :time => time})
     end
     times

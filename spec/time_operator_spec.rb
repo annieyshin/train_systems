@@ -6,7 +6,7 @@ require('spec_helper')
 describe(Traintime) do
   describe("#save") do
     it("adds new time") do
-      new_time = Traintime.new({:time => "12:59"})
+      new_time = Traintime.new({:time => "12:59", :id_city => 30, :id_train => 88})
       new_time.save()
       time_input = DB.exec("SELECT * FROM stops WHERE time = '12:59';")
       expect(time_input.first["time"]).to(include("12:59"))

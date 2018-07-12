@@ -6,6 +6,7 @@ require('./lib/city_operator')
 require('./lib/train_operator')
 require('./lib/time_operator')
 require('./lib/cities')
+require('./lib/pretty')
 require("pry")
 require("pg")
 
@@ -13,6 +14,7 @@ require("pg")
 DB = PG.connect({:dbname => "train_systems_test"})
 
 get ('/') do
+  @all = Sortanice.new()
   erb(:input)
 end
 

@@ -1,0 +1,12 @@
+<%if @all != nil%>
+  <h3>Here is all your data</h3>
+
+  <ul>
+    <%@all.each do |train|%>
+    <li> <%= train %> </li>
+    <% end %>
+  </ul>
+
+<% else %>
+    <p>There are no trains here!</p>
+<% end %>
